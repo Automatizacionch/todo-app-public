@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mis Tareas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Mis Tareas</h1>
+
+    <form id="task-form" class="task-form">
+      <input
+        type="text"
+        id="task-input"
+        placeholder="Escribe una nueva tarea..."
+        maxlength="200"
+        autocomplete="off"
+        required
+      />
+      <button type="submit">Agregar</button>
+    </form>
+
+    <div class="tabs" role="tablist" aria-label="Filtrar tareas">
+      <button type="button" class="tab active" data-filter="pending" role="tab" aria-selected="true">
+        Pendientes (<span id="count-pending">0</span>)
+      </button>
+      <button type="button" class="tab" data-filter="completed" role="tab" aria-selected="false">
+        Completadas (<span id="count-completed">0</span>)
+      </button>
+    </div>
+
+    <ul id="task-list" class="task-list"></ul>
+
+    <p id="empty-message" class="empty-message" hidden>No hay tareas aqui.</p>
+  </main>
+
+  <template id="task-item-template">
+    <li class="task-item">
+      <label class="task-check">
+        <input type="checkbox" class="task-toggle" />
+        <span class="task-text"></span>
+      </label>
+      <div class="task-actions">
+        <button type="button" class="edit-btn" aria-label="Editar tarea">Editar</button>
+        <button type="button" class="delete-btn" aria-label="Eliminar tarea">Eliminar</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
